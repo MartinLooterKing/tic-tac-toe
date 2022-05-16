@@ -4,6 +4,7 @@ const players = {
   1: 'x',
   2: 'o',
 };
+
 let currentPlayer = players[1];
 
 function drawBoard(positions) {
@@ -15,6 +16,8 @@ function drawBoard(positions) {
     ${positions[6]} | ${positions[7]} | ${positions[8]}
   `);
 }
+
+
 
 function showTutorial() {
   console.log(`
@@ -51,11 +54,35 @@ function setPlayerMovement(position) {
   }
 }
 
+const winner = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]];
+
 // showTutorial();
 setPlayerMovement(0);
 setPlayerMovement(1);
 setPlayerMovement(2);
 setPlayerMovement(3);
 setPlayerMovement(4);
+setPlayerMovement(5);
+setPlayerMovement(6);
+setPlayerMovement(7);
+setPlayerMovement(8);
 
 drawBoard(boardData);
+
+showWinner();
+
+function showWinner(){
+
+if(players[1] == winner){
+
+  console.log(`Player 1 é o vencedor`);
+
+} else if(players[2] == winner){
+  console.log(`Player 2 é o vencedor`);
+}  else{
+
+  console.log(`Deu velha`);
+
+}
+
+}
